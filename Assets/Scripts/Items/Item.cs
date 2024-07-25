@@ -82,6 +82,7 @@ public class Item : MonoBehaviour
             case ItemEnum.BROKEN_PEARL:
                 Managers.Game.Players[0].GetComponent<CharacterControllerEx>().State = Define.State.Airborne;
                 Managers.Game.Player1Score -= 1;
+                Managers.Sound.Play("SFX/boom", 0.75f);
                 break;
         }
         //Destroy(gameObject);
@@ -143,11 +144,12 @@ public class Item : MonoBehaviour
                 break;
             case ItemEnum.BOMB:
                 Managers.Game.Players[0].GetComponent<CharacterControllerEx>().State = Define.State.Airborne;
-                Managers.Sound.Play("SFX/boom");
+                Managers.Sound.Play("SFX/boom", 0.75f);
                 break;
             case ItemEnum.BROKEN_PEARL:
                 Managers.Game.Players[1].GetComponent<CharacterControllerEx>().State = Define.State.Airborne;
-                Managers.Game.Player1Score -= 1;
+                Managers.Game.Player2Score -= 1;
+                Managers.Sound.Play("SFX/boom", 0.75f);
                 break;
 
         }
